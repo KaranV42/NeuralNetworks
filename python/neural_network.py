@@ -4,7 +4,7 @@ from loss_functions import cross_entropy_loss, cross_entropy_derivative
 
 class NeuralNetwork:
     def __init__(self, input_size, hidden_size, output_size):
-        # Initialize weights and biases
+        # Initializing random weights and biases
         self.W1 = np.random.randn(input_size, hidden_size) * 0.01
         self.b1 = np.zeros((1, hidden_size))
         self.W2 = np.random.randn(hidden_size, output_size) * 0.01
@@ -19,7 +19,7 @@ class NeuralNetwork:
         return self.A2
 
     def backward(self, X, y_true, y_pred, learning_rate):
-        # Backpropagation
+        # Backpropagation or Backward Pass
         m = X.shape[0]
         
         # Gradient of loss with respect to output
@@ -33,7 +33,7 @@ class NeuralNetwork:
         dW1 = np.dot(X.T, dZ1) / m
         db1 = np.sum(dZ1, axis=0, keepdims=True) / m
         
-        # Update weights and biases
+        # Updating weights and biases
         self.W1 -= learning_rate * dW1
         self.b1 -= learning_rate * db1
         self.W2 -= learning_rate * dW2
