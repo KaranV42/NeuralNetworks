@@ -2,7 +2,6 @@ import numpy as np
 from neural_network import NeuralNetwork
 
 if __name__ == "__main__":
-    # XOR problem with one-hot encoded labels
     X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     y = np.array([[1, 0], [0, 1], [0, 1], [1, 0]])  # One-hot encoding
 
